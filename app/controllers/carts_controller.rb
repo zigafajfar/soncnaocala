@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart, only: [:show, :update, :destroy]
   http_basic_authenticate_with name: "wwwhmb", password: "spletneurice52", except: [:show, :create]
   before_filter :authenticate_cart, except: [:create, :index]
 

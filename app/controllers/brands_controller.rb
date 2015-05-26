@@ -1,5 +1,5 @@
 class BrandsController < ApplicationController
-  before_action :set_brand, only: [:show, :edit, :update, :destroy]
+  before_action :set_brand, only: [:edit, :update, :destroy]
   http_basic_authenticate_with name: "wwwhmb", password: "spletneurice52", except: [:index, :show]
 
   # GET /brands

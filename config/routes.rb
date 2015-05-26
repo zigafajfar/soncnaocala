@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :order_items
-  resources :carts do
-    resources :users
+  resources :order_items, except: [:new, :edit, :index, :show]
+  resources :carts, except: [:new, :edit] do
+    resources :users, except: [:index, :edit]
   end
-  resources :brands do
+  resources :brands, except: [:show] do
     resources :models
   end
 

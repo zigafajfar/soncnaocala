@@ -1,5 +1,5 @@
 class OrderItemsController < ApplicationController
-  before_action :set_order_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_order_item, only: [:update, :destroy]
   before_filter :cart_exists?
 
   # POST /order_items
