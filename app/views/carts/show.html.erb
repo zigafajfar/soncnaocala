@@ -1,0 +1,24 @@
+<% if @cart.order_items.any? %>
+	<div class="row">
+		<%= render @cart.order_items %>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<h3>Vrednost naročila: <%= number_to_currency(true_cart.order_price, unit: "EUR", separator: ",", delimiter: "", format: "%n %u") %></h3>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<%= link_to "Naroči", new_cart_user_path(@cart), class: "btn btn-success btn-block" %>
+		</div>
+	</div>
+<% else %>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<h3 class="text-center">V košarici nimate izdelkov. :(</h3>
+			<p class="text-center"><%= link_to "Nazaj v shopping!", root_path %></p>
+		</div>
+	</div>
+<% end %>

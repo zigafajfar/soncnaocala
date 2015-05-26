@@ -1,0 +1,6 @@
+<%= link_to true_cart, class: "small-white" do %>
+	<div class="basket"></div>
+	<div class="price">
+		<strong><%= number_to_currency(true_cart.order_price, unit: "EUR", separator: ",", delimiter: "", format: "%n %u") %></strong>
+	</div>
+<% end %>

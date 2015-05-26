@@ -1,0 +1,37 @@
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+          <% if true_cart %>
+            <%= form_for OrderItem.new do |f| %>
+              <%= f.hidden_field :model_id, value: model.id %>
+              <%= f.hidden_field :cart_id, value: true_cart.id %>
+              <%= f.submit "Dodaj v košarico", class: "btn btn-block btn-success" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-4">
+          <%= image_tag model.image(:medium), width: "100%" %>
+        </div>
+        <div class="col-md-8">
+          <%= simple_format(model.description) %>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="top-10">
+                <p><%= link_to "Več o #{model.name}", brand_model_path(model.brand, model) %></p>
+                Cena: <strong><%= number_to_currency(model.price, unit: "EUR", separator: ",", delimiter: "", format: "%n %u") %></strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

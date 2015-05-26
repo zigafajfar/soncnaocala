@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <p class="lead">Nakupi</p>
+            </div>
+          </div>
+        </div>
+        <% @carts.each do |cart| %>
+          <div class="row">
+            <div class="col-md-1">
+              <%= cart.id %>
+            </div>
+            <div class="col-md-3">
+              <%= link_to cart.user.full_name, cart_user_path(cart, cart.user) %>
+            </div>
+            <div class="col-md-5">
+              <%= number_to_currency(cart.order_price, unit: "EUR", separator: ",", delimiter: "", format: "%n %u") %>
+            </div>
+            <div class="col-md-3">
+              <%= link_to 'Izbriši', cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+          <%= link_to "Odstrani", order_item, method: :delete, class: "btn btn-success btn-block" %>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-4">
+          <%= image_tag order_item.model.image(:medium), width: "100%" %>
+        </div>
+        <div class="col-md-8">
+          <%= order_item.model.description %>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="top-10">
+                <p><%= link_to "Več o #{order_item.model.name}", brand_model_path(order_item.model.brand, order_item.model) %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
